@@ -239,8 +239,11 @@ margin:0px auto;
 
 .post1 .date {
 }
+.post1 td.table_labels {
+        font-weight: bold;
+}
 
-.post1 .meta {
+/*.post1 .meta {
 	margin-top: -10px;
 	padding: 10px 0px 2px 16px;
 	background: url(images/img03.gif) no-repeat left 8px;
@@ -255,7 +258,7 @@ margin:0px auto;
 	margin-top: -10px;
 }
 
-.post1 .meta a { }
+.post1 .meta a { }*/
 
 .post1 .entry {
 	padding: 10px 0;
@@ -274,7 +277,7 @@ margin:0px auto;
 }
 
 .post1 .button {
-    margin-left: 100px;
+    margin-left:auto;
 }
 
 .post1 .box{
@@ -289,7 +292,7 @@ p.Questions{
 }
 
 p.Answers {
-    font-family: monospace;
+    
 }
 
 .post1 table{   
@@ -297,7 +300,6 @@ p.Answers {
     border:solid thin gray;
     border-collapse: collapse;
     margin: 10px;
-    -moz-border-radius: 8px;
 }
 .post1 thead th {
 	padding: 5px 0;
