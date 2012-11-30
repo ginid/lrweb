@@ -100,8 +100,8 @@
     
     <body>
         <jsp:include page="/WEB-INF/header.jsp" />
-        <jsp:include page="/WEB-INF/leftSidebar.jsp" />
-        <div id="content" style="width:700px">
+        <%--<jsp:include page="/WEB-INF/leftSidebar.jsp" />--%>
+        <div id="content" style="width:90%">
             <div class="post1" style="background: none">
                             <% if((String)session.getAttribute("name")!=null){%>
                                 <h2 class="title">Learning License Form</h2>

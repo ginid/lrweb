@@ -25,7 +25,7 @@
                                  Home</a></li>
 				<li><a href="#">License</a>
                                     <ul>
-                                                    <li><a href="LearningLicense.jsp">Learning License</a></li>
+                                                    <li><a href="pre_ll_page.jsp">Learning License</a></li>
                                                     <li><a href="PermanentLicense.jsp">Permanent License</a></li>
                                                     <li><a href="LicenseRenewal.jsp">Renewal of License</a></li>                                                    
                                                     <li><a href="DuplicateLicense.jsp">Duplicate License</a></li>

@@ -44,7 +44,7 @@
 			</div>
         </div>
 	<!-- end #content -->
-        <jsp:include page="/WEB-INF/rightSidebar.jsp" />
+        <%--<jsp:include page="/WEB-INF/rightSidebar.jsp" />--%>
         <jsp:include page="/WEB-INF/footer.jsp" />
         </div>
     </body>
