@@ -4,6 +4,7 @@
     Author     : rishabh
 --%>
 
+<%@page import="java.io.PrintWriter"%>
 <%@page import="lrweb.CommonTasks"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="lrweb.DatabaseConnection"%>
@@ -60,10 +61,10 @@
                         <%
                         }catch(SQLException ob)
                         {
-                            out.print("<p><strong>An Error Occured<strong></p><p><strong>Error Description:</strong>"+ob);
+                            out.print("<p><strong><underline>An Error Occured</underline></strong></p><p><strong>Error Description:&nbsp;</strong>"+ob+"</p>");
                             
                         }catch(ClassNotFoundException ob){
-                            out.print("<p><strong>An Error Occured<strong></p><p><strong>Error Description:</strong>"+ob);
+                            out.print("<p><strong>An Error Occured</strong></p><p><strong>Error Description:&nbsp;</strong>"+ob+"</p>");
                         }
                     %>
                     

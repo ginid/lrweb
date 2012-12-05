@@ -17,7 +17,7 @@
             {
                 if(which==1)
                     {
-                        document.ll_request_confirm.action="LearningLicense.jsp";
+                        document.ll_request_confirm.action="LearningLicense.jsp"; 
                     }
                     document.ll_request_confirm.submit();
                    
@@ -134,7 +134,7 @@
                                             </tbody>
                                         </table>
                                         <% session.setAttribute("llbean", llbean);%>
-                                        <input style="margin-left:150px" class="button" type="submit" value="Confirm" /><input style="margin-left:150px" class="button" type="button" value="Edit" name="b1" onclick="buttonclicked(1)" />
+                                        <input class="button" type="submit" value="Confirm" /><input class="button" type="button" value="Edit" name="b1" onclick="buttonclicked(1)" />
                                     </fieldset>
                                 </form>
                                 <%}%>

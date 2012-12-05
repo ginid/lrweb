@@ -17,9 +17,9 @@
             {
                 if(which==1)
                     {
-                        document.ll_request_confirm.action="PermanentLicense.jsp";
+                        document.pl_request_confirm.action="PermanentLicense.jsp";
                     }
-                    document.ll_request_confirm.submit();                   
+                    document.pl_request_confirm.submit();                   
             }
         </script>
     </head>
