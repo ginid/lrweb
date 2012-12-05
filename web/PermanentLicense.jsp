@@ -15,10 +15,10 @@
         <script>
             
             function populateFields(){
-                    document.llfrm.tapa.value="<jsp:getProperty name="plbean" property="permanentAddress" />";
-                    document.llfrm.tata.value="<jsp:getProperty name="plbean" property="temporaryAddress" />";
+                    document.plfrm.tapa.value="<jsp:getProperty name="plbean" property="permanentAddress" />";
+                    document.plfrm.tata.value="<jsp:getProperty name="plbean" property="temporaryAddress" />";
                     //set the bloodgroup combobox to the selected value{start}
-                    var x=document.llfrm.sbg;
+                    var x=document.plfrm.sbg;
                     var index;
                     var i;
                     for (i=0;i<x.length;i++)
@@ -28,7 +28,7 @@
                             break;
                         }
                     }
-                    document.llfrm.sbg.selectedIndex=index;
+                    document.plfrm.sbg.selectedIndex=index;
                     //end
                     
                 }
