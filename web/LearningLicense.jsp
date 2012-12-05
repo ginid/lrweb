@@ -7,98 +7,135 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <jsp:useBean id="llbean" scope="session" class="lrweb.llbean" />
-
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Learning License</title>
         <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
-        <script>
-      
-      function validateForm()
-            {
-                if(document.llfrm.tn.value=="")
-                {
-                  alert("Name should not be left blank");
-                  document.llfrm.tn.focus();
-                  return false;
+        <script>    
+                function populateFields(){
+                    document.llfrm.tapa.value="<jsp:getProperty name="llbean" property="permanentAddress" />";
+                    document.llfrm.tata.value="<jsp:getProperty name="llbean" property="temporaryAddress" />";
+                    //set the bloodgroup combobox to the selected value{start}
+                    var x=document.llfrm.sbg;
+                    var index;
+                    var i;
+                    for (i=0;i<x.length;i++)
+                    {
+                        if(x.options[i].text=="<jsp:getProperty name="llbean" property="bloodgroup" />"){
+                            index=i;
+                            break;
+                        }
+                    }
+                    document.llfrm.sbg.selectedIndex=index;
+                    //end
+                    //set the bloodgroup proofCombo1 to the selected value{start}
+                    x=document.llfrm.proofCombo1;
+                    for (i=0;i<x.length;i++)
+                    {
+                        if(x.options[i].text=="<jsp:getProperty name="llbean" property="residenceProof" />"){
+                            index=i;
+                            break;
+                        }
+                    }
+                    document.llfrm.proofCombo1.selectedIndex=index;
+                    //end
+                    //set the bloodgroup proofCombo2 to the selected value{start}
+                    x=document.llfrm.proofCombo2;
+                    for (i=0;i<x.length;i++)
+                    {
+                        if(x.options[i].text=="<jsp:getProperty name="llbean" property="ageProof" />"){
+                            index=i;
+                            break;
+                        }
+                    }
+                    document.llfrm.proofCombo2.selectedIndex=index;
+                    //end
                 }
-                if(document.llfrm.tfn.value=="")
-                {
-                  alert("Name should not be left blank");
-                  document.llfrm.tfn.focus();
-                  return false;
-                }
-                if(document.llfrm.dbd.value<"01-01-1996")
-                {
-                  alert("Age must be greater than 16 Years");
-                  document.llfrm.dbd.focus();
-                  return false;
-                }
-                if(document.llfrm.tapa.value=="")
-                {
-                  alert("Permanent Address should not be left blank");
-                  document.llfrm.tapa.focus();
-                  return false;
-                }
-                if(document.llfrm.tata.value=="")
-                {
-                  alert("Permanent Address should not be left blank");
-                  document.llfrm.tata.focus();
-                  return false;
-                }
-                if(document.llfrm.tq.value=="")
-                {
-                  alert("Qualification should not be left blank");
-                  document.llfrm.tq.focus();
-                  return false;
-                }
-                if(document.llfrm.tcn.value.length!=10)
-                {
-                  alert("Contact Number should be of ten digits");
-                  document.llfrm.tcn.focus();
-                  return false;
-                }
-                //E-mail Validation Block{start}
-                var x=document.llfrm.tea.value;
-                var atpos=x.indexOf("@");
-                var dotpos=x.lastIndexOf(".");
-                if(atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
-                {
-                  alert("Enter a valid E-mail Address");
-                  document.llfrm.tcn.focus();
-                  return false;
-                }
-                //E-mail Validation Block{End}
-                if(document.llfrm.tim.value=="")
-                {
-                  alert("Identification Mark should not be left blank");
-                  document.llfrm.tim.focus();
-                  return false;
-                }
-                if(document.llfrm.sbg.value=="none")
-                {
-                  alert("A Blood Group should be selected");
-                  document.llfrm.tbg.focus();
-                  return false;
-                }
-                if(document.llfrm.dmcid.value=="")
-                {
-                  alert("Medical Certificate issue date should not be left blank");
-                  document.llfrm.tim.focus();
-                  return false;
-                }
-                if(document.llfrm.tidn.value=="")
-                {
-                  alert("Issuing Doctor's Name should not be left blank");
-                  document.llfrm.tim.focus();
-                  return false;
-                }
-            }
+                function validateForm()
+                      {
+                          if(document.llfrm.tn.value=="")
+                          {
+                            alert("Name should not be left blank");
+                            document.llfrm.tn.focus();
+                            return false;
+                          }
+                          if(document.llfrm.tfn.value=="")
+                          {
+                            alert("Name should not be left blank");
+                            document.llfrm.tfn.focus();
+                            return false;
+                          }
+                          if(document.llfrm.dbd.value<"01-01-1996")
+                          {
+                            alert("Age must be greater than 16 Years");
+                            document.llfrm.dbd.focus();
+                            return false;
+                          }
+                          if(document.llfrm.tapa.value=="")
+                          {
+                            alert("Permanent Address should not be left blank");
+                            document.llfrm.tapa.focus();
+                            return false;
+                          }
+                          if(document.llfrm.tata.value=="")
+                          {
+                            alert("Permanent Address should not be left blank");
+                            document.llfrm.tata.focus();
+                            return false;
+                          }
+                          if(document.llfrm.tq.value=="")
+                          {
+                            alert("Qualification should not be left blank");
+                            document.llfrm.tq.focus();
+                            return false;
+                          }
+                          if(document.llfrm.tcn.value.length!=10)
+                          {
+                            alert("Contact Number should be of ten digits");
+                            document.llfrm.tcn.focus();
+                            return false;
+                          }
+                          //E-mail Validation Block{start}
+                          var x=document.llfrm.tea.value;
+                          var atpos=x.indexOf("@");
+                          var dotpos=x.lastIndexOf(".");
+                          if(atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+                          {
+                            alert("Enter a valid E-mail Address");
+                            document.llfrm.tcn.focus();
+                            return false;
+                          }
+                          //E-mail Validation Block{End}
+                          if(document.llfrm.tim.value=="")
+                          {
+                            alert("Identification Mark should not be left blank");
+                            document.llfrm.tim.focus();
+                            return false;
+                          }
+                          if(document.llfrm.sbg.value=="none")
+                          {
+                            alert("A Blood Group should be selected");
+                            document.llfrm.tbg.focus();
+                            return false;
+                          }
+                          if(document.llfrm.dmcid.value=="")
+                          {
+                            alert("Medical Certificate issue date should not be left blank");
+                            document.llfrm.tim.focus();
+                            return false;
+                          }
+                          if(document.llfrm.tidn.value=="")
+                          {
+                            alert("Issuing Doctor's Name should not be left blank");
+                            document.llfrm.tim.focus();
+                            return false;
+                          }
+                      }
         </script>
     </head>
     
-    <body>
+    <body onload="populateFields()">
         <jsp:include page="/WEB-INF/header.jsp" />
         <%--<jsp:include page="/WEB-INF/leftSidebar.jsp" />--%>
         <div id="content" style="width:90%">

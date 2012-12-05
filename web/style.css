@@ -316,7 +316,11 @@ p.Answers {
 	border: solid thin gray;
         border-collapse: collapse;
 }
+.post1 .button{
+    margin-left: 250px;
+}
 /* Post */
+
 
 .post {
 	background: url(images/img07.jpg) repeat-x left bottom;
