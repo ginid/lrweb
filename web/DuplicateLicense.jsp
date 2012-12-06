@@ -4,47 +4,72 @@
     Author     : rishabh
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="dlbean" scope="session" class="lrweb.dlbean" />
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>License and Registration</title>
+        <title>Duplicate License</title>
         <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+        <script>
+            function populateFields(){
+                document.dlfrm.tapa.value="<jsp:getProperty name="dlbean" property="permanentAddress" />";
+                document.dlfrm.dlo.value="<jsp:getProperty name="dlbean" property="losingDate" />";
+            }
+            function validateForm(){
+                if(document.dlfrm.tn.value==""){
+                    alert("A Name must be entered");
+                    document.dlfrm.tn.focus();
+                    return false;
+                }
+                if(document.dlfrm.tfn.value==""){
+                    alert("Father's Name must be entered");
+                    document.dlfrm.tfn.focus();
+                    return false;
+                }
+                if(document.dlfrm.tapa.value==""){
+                    alert("Permanent Address must be entered");
+                    document.dlfrm.tapa.focus();
+                    return false;
+                }
+                if(document.dlfrm.dlo.value==""){
+                    alert("You should mention date of losing License");
+                    document.dlfrm.dlo.focus();
+                    return false;
+                }
+                if(document.dlfrm.tlc.value==""){
+                    alert("Losing circumstances must be entered");
+                    document.dlfrm.tlc.focus();
+                    return false;
+                }
+               
+            }
+        </script>
     </head>
-    <body>
+    <body onload="populateFields()">
         <jsp:include page="/WEB-INF/header.jsp" />
-        <jsp:include page="/WEB-INF/leftSidebar.jsp" />
-        <div id="content" style="width:700px">
+        <%--<jsp:include page="/WEB-INF/leftSidebar.jsp" />--%>
+        <div id="content" style="width:90%">
 			<div class="post1"  style="background: none">
-                            <% if((String)session.getAttribute("user")!=null){%>
+                            <% if((String)session.getAttribute("name")!=null){%>
                                 <h2 class="title">Duplicate License Form</h2>                                
                             <%}%>
                             <div class="entry">
-                                <% if(session.getAttribute("user")==null){%>
+                                <% if(session.getAttribute("name")==null){%>
                                 <p style="font-size:20px">Access Denied! You are currently not authorized to view this page. Kindly Login and then try again.</p>
                                 <% }
                                 else
                                 { %>
-                                <form name="DuplicateLicense" action="none" method="POST">
+                                <form name="dlfrm" action="receive_dl_request.jsp" method="POST">
                                     <fieldset>
-                                        <p><label>Permanent License No:</label><input type="text" name="tpln" value="" /></p>
-                                        <p><label>Police Report Date:</label><input type="text" name="tprd" value="" /></p>
-                                        <p><label>Police Station Name:</label><input type="text" name="tpsn" value="" /></p>
-                                        <p><label>Inspector Name:</label><input type="text" name="tin" value="" /></p>
-                                        <p><label>FIR Copy:</label><input type="file" name="file1"></p>
                                         <p style="text-decoration: underline"><strong>Personal Information</strong></p> 
                                         <div class="box">
-                                            <p><label>Name:</label><input type="text" name="tn" value="" /></p>
-                                            <p><label>Address:</label><input type="text" name="ta" value="" /></p>
-                                            <p><label>Contact Number:</label><input type="text" name="tcn" value="" /></p>
-                                            <p><label>Email Address:</label><input type="text" name="tea" value="" /></p>
+                                            <p><label>Name:</label><input type="text" name="tn" value='<jsp:getProperty name="dlbean" property="name" />' /></p>
+                                            <p><label>Father's Name:</label><input type="text" name="tfn" value='<jsp:getProperty name="dlbean" property="fathername" />' /></p>
+                                            <p><label>Permanent Address:</label><textarea name="tapa"></textarea></p>
                                         </div>
-                                        <p style="text-decoration: underline"><strong>Fee Details</strong></p> 
-                                        <div class="box">
-                                            <p><label>Demand Draft No.</label><input type="text" name="t4" value="" /></p>
-                                            <p><label>Demand Draft Scan Copy</label><input type="file" name="file2" /></p>
-                                        </div>
-                                        <p><input type="checkbox" name="agree" value="ON" />I Agree to the Terms And Conditions.</p>
-                                        <input class="button" type="submit" value="Submit" /><input class="button" type="reset" value="Clear" />
+                                        <p><label>License lost or destroyed on:</label><input type="date" name="dlo"  /></p>
+                                        <p><label>License lost or destroyed under circumstances:</label><input type="text" name="tlc" value='<jsp:getProperty name="dlbean" property="losingCircumstances" />' /></p>
+                                        <input class="button" type="submit" value="Submit" onclick="return validateForm()" /><input class="button" type="reset" value="Clear" />
                                     </fieldset>
                                 </form>
                                 <% } %>

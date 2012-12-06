@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>License and Registration</title>
         <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+        <link rel="stylesheet" href="css/pikaday.css">
         <script>
             
             function populateFields(){
@@ -154,7 +155,7 @@
                                         <div class="box">
                                             <p><label>Name:</label><input type="text" name="tn" value="<jsp:getProperty name="plbean" property="name" />" /></p>
                                             <p><label>Father's\Husband's Name:</label><input type="text" name="tfn" value="<jsp:getProperty name="plbean" property="fathername" />" /></p>
-                                            <p><label>Birth Date:</label><input type="date" name="dbd" /></p>
+                                            <p><label>Birth Date:</label><input type="text" name="dbd" id="datepicker"/></p>
                                             <p><label>Permanent Address:</label><textarea name="tapa" rows="4" cols="23"></textarea></p>
                                             <p><label>Temporary Address:</label><textarea name="tata" rows="4" cols="23"></textarea></p>
                                             <p><label>Qualification:</label><input type="text" name="tq" value="<jsp:getProperty name="plbean" property="qualification" />" /></p>
@@ -190,7 +191,13 @@
                             </div>
 			</div>
         </div>
+        <script src="pikaday.js"></script>
+        <script>
+            var picker = new Pikaday({
+                        field: document.getElementById('datepicker'),
+                        format: 'DD MM YYYY'});
+        </script>
 	<!-- end #content -->
-        <jsp:include page="/WEB-INF/footer.jsp" />
+        <jsp:include page="/WEB-INF/footer.jsp" />    
     </body>
 </html>

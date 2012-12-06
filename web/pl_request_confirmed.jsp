@@ -66,8 +66,7 @@
                         }catch(ClassNotFoundException ob){
                             out.print("<p><strong>An Error Occured</strong></p><p><strong>Error Description:&nbsp;</strong>"+ob+"</p>");
                         }
-                    %>
-                    
+                        %>                    
                 </div>
                 </div>
             </div>

@@ -43,5 +43,56 @@ public class CommonTasks {
         }
         return counter;
     }
+    public static int getNextLRApplicationNo(){
+        int counter=0;
+        try{
+            PreparedStatement stmt=DatabaseConnection.getConnection().prepareStatement("select count(*) from LicenseRenewalJSP");
+            ResultSet rs=stmt.executeQuery();
+            if(rs.next())
+            {
+                counter=rs.getInt(1);
+                counter++;
+            }
+            
+        }catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return counter;
+    }
+    public static int getNextDLApplicationNo(){
+        int counter=0;
+        try{
+            PreparedStatement stmt=DatabaseConnection.getConnection().prepareStatement("select count(*) from DuplicateLicenseJSP");
+            ResultSet rs=stmt.executeQuery();
+            if(rs.next())
+            {
+                counter=rs.getInt(1);
+                counter++;
+            }
+            
+        }catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return counter;
+    }
+    public static int getNextNCVApplicationNo(){
+        int counter=0;
+        try{
+            PreparedStatement stmt=DatabaseConnection.getConnection().prepareStatement("select count(*) from NewClassVehicleAdditionJSP");
+            ResultSet rs=stmt.executeQuery();
+            if(rs.next())
+            {
+                counter=rs.getInt(1);
+                counter++;
+            }
+            
+        }catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return counter;
+    }
     
 }

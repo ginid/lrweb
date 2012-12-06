@@ -27,9 +27,9 @@
                                     <ul>
                                                     <li><a href="pre_ll_page.jsp">Learning License</a></li>
                                                     <li><a href="pre_pl_page.jsp">Permanent License</a></li>
-                                                    <li><a href="LicenseRenewal.jsp">Renewal of License</a></li>                                                    
-                                                    <li><a href="DuplicateLicense.jsp">Duplicate License</a></li>
-                                                    <li><a href="NewClassVehicleAddition.jsp">Addition of New Class Vehicle</a></li>
+                                                    <li><a href="pre_lr_page.jsp">Renewal of License</a></li>                                                    
+                                                    <li><a href="pre_dl_page.jsp">Duplicate License</a></li>
+                                                    <li><a href="pre_ncv_page.jsp">Addition of New Class Vehicle</a></li>
                                     </ul>
                                 </li>
                                         
