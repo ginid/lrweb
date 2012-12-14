@@ -19,13 +19,7 @@
 				</li>
                             <% }
                                else if(session.getAttribute("name")!=null&&session.getAttribute("userType").equals("admin")){%>
-                                <li class="Headers">Reports
-                                          <ul>
-                                                    <li><a href="#">License Report</a></li>
-                                                    <li><a href="#">Registration Report</a></li>
-                                                    <li><a href="#">Users Report</a></li>                                         
-                                          </ul>
-                                </li>   
+                                   
                                <%}
                                else{%>
                                <li>
@@ -47,12 +41,7 @@
                                                     <li><a href="NewClassVehicleAddition.jsp">Addition of New Class Vehicle</a></li>
                                                 </ul>
                                                 </li>
-						<li class="Headers">Reports
-                                                <ul>
-                                                    <li><a href="#">License Report</a></li>
-                                                    <li><a href="#">Registration Report</a></li>
-                                                    <li><a href="#">Users Report</a></li>                                         
-                                                </ul>
+						
                                                 </li>
 					</ul>
 				</li>

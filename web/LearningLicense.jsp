@@ -51,6 +51,8 @@
                     }
                     document.llfrm.proofCombo2.selectedIndex=index;
                     //end
+                    document.llfrm.dbd.value="<jsp:getProperty name="llbean" property="birthdate" />";
+                    document.llfrm.dmcid.value="<jsp:getProperty name="llbean" property="medicalCertificateIssueDate" />";
                 }
                 function validateForm()
                       {

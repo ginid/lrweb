@@ -47,7 +47,12 @@
                                             String[] values=request.getParameterValues("vehicleType");
                                             String slvalue="";
                                             for(int i=0;i<values.length;i++){
-                                                slvalue=slvalue+"<p>"+values[i]+"</p>";
+                                                if(i==values.length-1){
+                                                    slvalue=slvalue+values[i];
+                                                }
+                                                else{
+                                                    slvalue=slvalue+values[i]+", ";
+                                                }
                                             }
                                         %>
                                         <jsp:setProperty name="ncvbean" property="vehicleType" value='<%= slvalue %>' />

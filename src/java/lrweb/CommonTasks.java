@@ -94,5 +94,56 @@ public class CommonTasks {
         }
         return counter;
     }
+    public static int getNextNRApplicationNo(){
+        int counter=0;
+        try{
+            PreparedStatement stmt=DatabaseConnection.getConnection().prepareStatement("select count(*) from NewRegistrationJSP");
+            ResultSet rs=stmt.executeQuery();
+            if(rs.next())
+            {
+                counter=rs.getInt(1);
+                counter++;
+            }
+            
+        }catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return counter;
+    }
+    public static int getNextDRApplicationNo(){
+        int counter=0;
+        try{
+            PreparedStatement stmt=DatabaseConnection.getConnection().prepareStatement("select count(*) from DuplicateRegistrationJSP");
+            ResultSet rs=stmt.executeQuery();
+            if(rs.next())
+            {
+                counter=rs.getInt(1);
+                counter++;
+            }
+            
+        }catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return counter;
+    }
+    public static int getNextRRApplicationNo(){
+        int counter=0;
+        try{
+            PreparedStatement stmt=DatabaseConnection.getConnection().prepareStatement("select count(*) from RegistrationRenewalJSP");
+            ResultSet rs=stmt.executeQuery();
+            if(rs.next())
+            {
+                counter=rs.getInt(1);
+                counter++;
+            }
+            
+        }catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return counter;
+    }
     
 }

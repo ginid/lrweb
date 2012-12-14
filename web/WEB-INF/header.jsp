@@ -9,7 +9,7 @@
 <!DOCTYPE html>
         <div id="logo">
 		<h1>License and Registration</h1>
-		<p><em>RTO Management Web Portal</em></p>
+		<p><em>Regional Transport Office Web Portal</em></p>
 	</div>
 	<hr />
 	<!-- end #logo -->
@@ -34,9 +34,9 @@
                                 </li>
                                         
 				<li><a href="#">Registration</a><ul>                                           
-                                                    <li><a href="NewRegistration.jsp">New Registration</a></li>
-                                                    <li><a href="DuplicateRegistration.jsp">Duplicate Registration</a></li>
-                                                    <li><a href="RegistrationRenewal.jsp">Registration Renewal</a></li>
+                                                    <li><a href="pre_nr_page.jsp">New Registration</a></li>
+                                                    <li><a href="pre_dr_page.jsp">Duplicate Registration</a></li>
+                                                    <li><a href="pre_rr_page.jsp">Registration Renewal</a></li>
                                         </ul></li>
 				<li><a href="Complaint.jsp">Complaints</a></li>
                                 <li><a href="FAQDL.jsp">FAQs</a></li>

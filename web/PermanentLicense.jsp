@@ -11,8 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>License and Registration</title>
-        <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
-        <link rel="stylesheet" href="css/pikaday.css">
+        <link href="style.css" rel="stylesheet" type="text/css" media="screen" />        
         <script>
             
             function populateFields(){
@@ -31,11 +30,19 @@
                     }
                     document.plfrm.sbg.selectedIndex=index;
                     //end
+                    document.plfrm.dbd.value="<jsp:getProperty name="plbean" property="dateOfBirth" />";
+                    document.plfrm.ddot.value="<jsp:getProperty name="plbean" property="dateOfTest" />";
+                    docuemnt.plfrm.vehicleType.value="<jsp:getProperty name="plbean" property="vehicleType" />";
                     
                 }
             
             function validateForm()
                       {
+                          if(document.plfrm.vehicleType.value==""){
+                              alert("You must enter the Vehicle Type");
+                              document.plfrm.vehicleType.focus();
+                              return false;
+                          }
                           if(document.plfrm.tlln.value==""){
                               alert("You must enter the License Number");
                               document.plfrm.tlln.focus();
@@ -59,6 +66,7 @@
                             document.plfrm.dbd.focus();
                             return false;
                           }
+                          
                           if(document.plfrm.tapa.value=="")
                           {
                             alert("Permanent Address should not be left blank");
@@ -125,7 +133,7 @@
     </head>
     <body onload="populateFields()">
         <jsp:include page="/WEB-INF/header.jsp" />
-        <div id="content" style="width:90%">
+        <div id="content" style="width:95%">
             <div class="post1" style="background: none">
                             <% if((String)session.getAttribute("name")!=null){%>
                                 <h2 class="title">Permanent License</h2>
@@ -138,24 +146,13 @@
                             
                                 <form name="plfrm" action="receive_pl_request.jsp" method="POST">
                                     <fieldset>
-                                        <p style="margin-top: 10px">I hereby apply for a license to enable me to drive vehicles of the following description:</p>
-                                        <div class="checkbox" style="padding-left: 450px">
-                                                <p><input type="checkbox" name="vehicleType" value="Motor Cycle without gear">Motor Cycle without gear</p>
-                                                <p><input type="checkbox" name="vehicleType" value="Motor Cycle with gear">Motor Cycle with gear</p>
-                                                <p><input type="checkbox" name="vehicleType" value="Invalid Carriages">Invalid Carriages</p>
-                                                <p><input type="checkbox" name="vehicleType" value="Light Motor">Light Motor</p>
-                                                <p><input type="checkbox" name="vehicleType" value="Medium Goods Vehicle">Medium Goods Vehicle</p>
-                                                <p><input type="checkbox" name="vehicleType" value="Medium Passenger motor Vehicle">Medium Passenger motor Vehicle</p>
-                                                <p><input type="checkbox" name="vehicleType" value="Heavy Goods Vehicle">Heavy Goods Vehicle</p>
-                                                <p><input type="checkbox" name="vehicleType" value="Heavy Passenger Motor Vehicle">Heavy Passenger Motor Vehicle</p>
-                                                <p><input type="checkbox" name="vehicleType" value="Road Roller">Road Roller</p>
-                                        </div>
+                                        <p><label>Vehicle Type:</label><input type="text" name="vehicleType" /></p>
                                         <p><label>Learning License Number:</label><input type="text" name="tlln" value="<jsp:getProperty name="plbean" property="learningLicenseNo" />" /></p>
                                         <p style="text-decoration: underline"><strong>Personal Information</strong></p>
                                         <div class="box">
                                             <p><label>Name:</label><input type="text" name="tn" value="<jsp:getProperty name="plbean" property="name" />" /></p>
                                             <p><label>Father's\Husband's Name:</label><input type="text" name="tfn" value="<jsp:getProperty name="plbean" property="fathername" />" /></p>
-                                            <p><label>Birth Date:</label><input type="text" name="dbd" id="datepicker"/></p>
+                                            <p><label>Birth Date:</label><input type="date" name="dbd" /></p>
                                             <p><label>Permanent Address:</label><textarea name="tapa" rows="4" cols="23"></textarea></p>
                                             <p><label>Temporary Address:</label><textarea name="tata" rows="4" cols="23"></textarea></p>
                                             <p><label>Qualification:</label><input type="text" name="tq" value="<jsp:getProperty name="plbean" property="qualification" />" /></p>
@@ -191,13 +188,7 @@
                             </div>
 			</div>
         </div>
-        <script src="pikaday.js"></script>
-        <script>
-            var picker = new Pikaday({
-                        field: document.getElementById('datepicker'),
-                        format: 'DD MM YYYY'});
-        </script>
-	<!-- end #content -->
+        <!-- end #content -->
         <jsp:include page="/WEB-INF/footer.jsp" />    
     </body>
 </html>

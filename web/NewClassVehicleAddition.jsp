@@ -13,6 +13,9 @@
         <title>License and Registration</title>
         <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
         <script>
+            function populateFields(){
+                document.ncvfrm.tpln.value="<jsp:getProperty name="ncvbean" property="licenseNumber" />";
+            }
             function validateForm(){
                 if(document.ncvfrm.tpln.value==""){
                     alert("License Number must be entered");
@@ -27,7 +30,7 @@
             }
         </script>
     </head>
-    <body>
+    <body onload="populateFields()">
         <jsp:include page="/WEB-INF/header.jsp" />
         <%--<jsp:include page="/WEB-INF/leftSidebar.jsp" />--%>
         <div id="content" style="width:90%">
@@ -43,7 +46,7 @@
                             
                                 <form name="ncvfrm" action="receive_ncv_request.jsp" method="POST">
                                     <fieldset>
-                                        <p><label>Permanent License Number:</label><input type="text" name="tpln" value='<jsp:getProperty name="ncvbean" property="licenseNumber" />' /></p>
+                                        <p><label>Permanent License Number:</label><input type="text" name="tpln" />' /></p>
                                         <p><label>Class of Vehicles to be added:</label></p>
                                         <div style="padding-left: 250px">
                                                 <p><input type="checkbox" name="vehicleType" value="Motor Cycle without gear">Motor Cycle without gear</p>
