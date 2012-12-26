@@ -4,7 +4,7 @@
     Author     : rishabh
 --%>
 
-<%@page import="lrweb.UserBean"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
         <div id="logo">
@@ -16,13 +16,11 @@
 	<div id="header">
 		<div id="menu">
 			<ul>
-                            <li><% if(session.getAttribute("name")!=null){
-                                 out.println("<a href=\"user_home.jsp\">");
-                                 }
-                                 else{%>
-                                 <a href="home.jsp">        
-                                 <%}%>
-                                 Home</a></li>
+                            <% if(session.getAttribute("name")!=null&&session.getAttribute("userType").equals("user"))
+                                {
+                            %>
+                            <!-- Menu Items for user -->
+                                <li><a href="user_home.jsp">Home</a></li>
 				<li><a href="#">License</a>
                                     <ul>
                                                     <li><a href="pre_ll_page.jsp">Learning License</a></li>
@@ -31,16 +29,47 @@
                                                     <li><a href="pre_dl_page.jsp">Duplicate License</a></li>
                                                     <li><a href="pre_ncv_page.jsp">Addition of New Class Vehicle</a></li>
                                     </ul>
-                                </li>
-                                        
+                                </li>                                        
 				<li><a href="#">Registration</a><ul>                                           
                                                     <li><a href="pre_nr_page.jsp">New Registration</a></li>
                                                     <li><a href="pre_dr_page.jsp">Duplicate Registration</a></li>
                                                     <li><a href="pre_rr_page.jsp">Registration Renewal</a></li>
-                                        </ul></li>
+                                     </ul>
+                                </li>
 				<li><a href="Complaint.jsp">Complaints</a></li>
                                 <li><a href="FAQDL.jsp">FAQs</a></li>
 				<li><a href="ContactUs.jsp">Contact Us</a></li>
+                             <% }
+                                else if(session.getAttribute("name")!=null&&session.getAttribute("userType").equals("admin"))
+                                {
+                             %>
+                            <!-- Menu Items for admin -->
+                                <li><a href="user_home.jsp">Home</a></li>
+				<li><a href="#">Reports</a>
+                                    <ul>
+                                                    <li><a href="#">License Reports</a></li>
+                                                    <li><a href="#">Registration Reports</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="ChangePrivilege.jsp">Manage Users</a></li>
+                                <li><a href="#">Manage News</a>
+                                    <ul>
+                                                    <li><a href="NewNews.jsp">Add New News</a></li>
+                                                    <li><a href="UpdateNewsSelect.jsp">Update Previous News</a></li>
+                                    </ul>
+                                </li>    
+                                <li><a href="#">Manage Complaints</a></li>
+                            <%  }
+                                else
+                                {
+                            %>
+                                
+                            <!-- Menu Items for Public -->
+                                <li><a href="home.jsp">Home</a></li>				
+				<li><a href="Complaint.jsp">Complaints</a></li>
+                                <li><a href="FAQDL.jsp">FAQs</a></li>
+				<li><a href="ContactUs.jsp">Contact Us</a></li>
+                            <% } %>
 			</ul>
 		</div>
             

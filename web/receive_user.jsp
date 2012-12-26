@@ -31,7 +31,7 @@
                         pstmt.setString(3, request.getParameter("tea"));
                         pstmt.setString(4,request.getParameter("tun"));
                         pstmt.setString(5,request.getParameter("tp"));
-                        pstmt.setString(6,null);
+                        pstmt.setString(6,"user");
                         int result=0;                        
                         if(request.getParameter("tp").equals(request.getParameter("tcp")))
                             result=pstmt.executeUpdate();

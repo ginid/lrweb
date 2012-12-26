@@ -105,7 +105,7 @@ hr { display: none; }
 	list-style: none;
 	position: relative;
 	display: inline-table;
-        width: 100%;
+        width: 980px;
 }
 
 #menu ul:after {
@@ -167,9 +167,9 @@ hr { display: none; }
 	width: 1000px;
 	height: 134px;
 	margin: 2px auto;
-	-moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
+	border-radius: 10px;
         background: url(images/banner3.jpg) no-repeat center bottom;
+        box-shadow: 10px 10px 5px #888888;
 }
 
 #logo h1, #logo p {
@@ -380,14 +380,14 @@ p.Answers {
 #sidebar {
 	float: left;
 	width: 220px;
-	padding-left: 10px;
+	padding-left: 5px;
 	padding-top: 5px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	color: #ffffff;
 	background:#84abbb;
-        -moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        box-shadow: 10px 10px 5px #888888;
 }
 
 #sidebar ul {
@@ -398,7 +398,7 @@ p.Answers {
 }
 
 #sidebar .textbox {
-        width:60%;
+        width:55%;
 }
 #sidebar p.login {
     font-family: 'Lucida Console',monospace;
@@ -446,9 +446,7 @@ p.Answers {
 	font-weight: normal;
 	color: #fff;
 	background: #4d4554;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-	
+        border-radius: 5px;
 }
 
 
@@ -542,8 +540,7 @@ p.Answers {
 	padding: 0px;
 	height: 30px;
 	background: #6f5882;
-	-moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
+	border-radius: 10px;
 }
 
 #footer p {
